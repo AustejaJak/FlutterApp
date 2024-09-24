@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'custom_form_field.dart';
 
 class LoginForm extends StatefulWidget{
   const LoginForm({super.key});
@@ -18,33 +19,19 @@ class LoginFormState extends State<LoginForm>{
       key: _formKey,
       child: Column(
         children: <Widget>[
-          TextFormField(
-            validator: (value) {
-              if (value == null || value.isEmpty){
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-            decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-              labelText: 'Enter your username',
-            ),
+          const CustomFormField(
+            labelText: "Enter your username",
+            validatorMessage: "Please enter your username",
+            obscureText: false,
+            enableSuggestions: true,
+            autocorrect: true,
           ),
-          //TODO: Create a seperate widget for text form field and put login form on screens.
-          TextFormField(
+          const CustomFormField(
+            labelText: "Enter your password",
+            validatorMessage: "Please enter your password",
             obscureText: true,
             enableSuggestions: false,
             autocorrect: false,
-            validator: (value) {
-              if (value == null || value.isEmpty){
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-            decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-              labelText: 'Enter your password',
-            ),
           ),
           ElevatedButton(
             style: const ButtonStyle(
