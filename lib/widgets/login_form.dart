@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'custom_form_field.dart';
+import 'custom_elevated_button.dart';
 
 class LoginForm extends StatefulWidget{
   const LoginForm({super.key});
@@ -33,20 +34,11 @@ class LoginFormState extends State<LoginForm>{
             enableSuggestions: false,
             autocorrect: false,
           ),
-          ElevatedButton(
-            style: const ButtonStyle(
-              foregroundColor: WidgetStatePropertyAll<Color>(Colors.blue)
-            ),
-            onPressed: () {
-              if (_formKey.currentState!.validate()){
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Processing Data')),
-                );
-              }
-            }, 
-            child: const Text('Submit'),
-            ),
+          CustomElevatedButton(
+            formKey: _formKey,
+            buttonText: "Submit",
+            foregroundColor: Colors.blue, 
+          ),
         ],
       ),
     );

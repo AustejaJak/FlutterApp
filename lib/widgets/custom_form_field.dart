@@ -30,7 +30,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
       enableSuggestions: enableSuggestions,
       autocorrect: autocorrect,
       validator: (value) {
-        return formValidation(value, validatorMessage!);
+        return formFieldValidation(value, validatorMessage!);
       },
       decoration: InputDecoration(
         border: const UnderlineInputBorder(),
