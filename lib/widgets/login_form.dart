@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'custom_form_field.dart';
 import 'custom_elevated_button.dart';
 
-class LoginForm extends StatefulWidget{
+class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
 
   @override
@@ -11,7 +11,7 @@ class LoginForm extends StatefulWidget{
   }
 }
 
-class LoginFormState extends State<LoginForm>{
+class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -19,25 +19,36 @@ class LoginFormState extends State<LoginForm>{
     return Form(
       key: _formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
+          const Text(
+            "Login",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
+          const SizedBox(height: 30),
           const CustomFormField(
-            labelText: "Enter your username",
+            labelText: "Username",
+            hintText: "Enter your username",
             validatorMessage: "Please enter your username",
             obscureText: false,
             enableSuggestions: true,
             autocorrect: true,
           ),
+          const SizedBox(height: 40),
           const CustomFormField(
-            labelText: "Enter your password",
+            labelText: "Password",
+            hintText: "Enter your password",
             validatorMessage: "Please enter your password",
             obscureText: true,
             enableSuggestions: false,
             autocorrect: false,
           ),
+          const SizedBox(height: 20),
           CustomElevatedButton(
             formKey: _formKey,
             buttonText: "Submit",
-            foregroundColor: Colors.blue, 
+            foregroundColor: Colors.blue,
           ),
         ],
       ),

@@ -6,13 +6,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: const Padding(
+    return const Scaffold(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: LoginForm(), // Calling the LoginForm widget here
+        child: LoginForm(),
       ),
     );
   }
