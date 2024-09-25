@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'custom_form_field.dart';
-import 'custom_elevated_button.dart';
+import '../../widgets/custom_form_field.dart';
+import '../../widgets/custom_elevated_button.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -48,7 +48,8 @@ class LoginFormState extends State<LoginForm> {
           CustomElevatedButton(
             formKey: _formKey,
             buttonText: "Submit",
-            foregroundColor: Colors.blue,
+            foregroundColor: Colors.black,
+            backgroundColor: const Color.fromARGB(255, 241, 236, 248),
           ),
         ],
       ),
