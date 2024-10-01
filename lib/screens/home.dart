@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           InfoCard(
-            svgPath: 'assets/images/man_figure.svg',
+            svgPath: 'assets/images/man_figure_legs.svg',
           ),
           WorkoutCard(),
         ],
