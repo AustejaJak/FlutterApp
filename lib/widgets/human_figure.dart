@@ -15,9 +15,6 @@ class HumanFigure extends StatefulWidget {
 class HumanFigureState extends State<HumanFigure> {
   String get svgPath => widget.svgPath;
 
-  Color headColor = Colors.black;
-  Color bodyColor = Colors.black;
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -26,14 +23,11 @@ class HumanFigureState extends State<HumanFigure> {
         children: [
           GestureDetector(
             onTapDown: (_) => setState(() {
-              bodyColor = const Color.fromARGB(255, 219, 172, 84);
             }),
             onTapUp: (_) => setState(() {
-              bodyColor = const Color.fromARGB(255, 219, 172, 84);
             }),
             child: SvgPicture.asset(
               svgPath,
-              colorFilter: ColorFilter.mode(bodyColor, BlendMode.srcIn),
               semanticsLabel: 'Body',
               width: 500,
               height: 500,
