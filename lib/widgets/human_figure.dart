@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/tappable_area.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HumanFigure extends StatefulWidget {
@@ -13,7 +14,19 @@ class HumanFigure extends StatefulWidget {
 }
 
 class HumanFigureState extends State<HumanFigure> {
-  String get svgPath => widget.svgPath;
+  String currentSvg = ''; // Holds the current SVG based on taps
+
+  @override
+  void initState() {
+    super.initState();
+    currentSvg = widget.svgPath; // Set initial SVG
+  }
+
+  void updateSvg(String newSvgPath) {
+    setState(() {
+      currentSvg = newSvgPath;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,36 +34,66 @@ class HumanFigureState extends State<HumanFigure> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          GestureDetector(
-            onTapDown: (_) => setState(() {
-            }),
-            onTapUp: (_) => setState(() {
-            }),
-            child: SvgPicture.asset(
-              svgPath,
-              semanticsLabel: 'Body',
-              width: 500,
-              height: 500,
-            ),
+          SvgPicture.asset(
+            currentSvg,
+            semanticsLabel: 'Body',
+            width: 300,
+            height: 500,
           ),
-          // Positioned(
-          //     top: 20,
-          //     child: MouseRegion(
-          //       onEnter: (_) => setState(() {
-          //         headColor = Colors.yellow;
-          //       }),
-          //       onExit: (_) => setState(() {
-          //         headColor = Colors.black;
-          //       }),
-          //       child: SvgPicture.asset(
-          //         svgPath,
-          //         colorFilter: ColorFilter.mode(bodyColor, BlendMode.srcIn),
-          //         semanticsLabel: 'Body',
-          //         width: 50,
-          //         height: 50,
-          //       ),
-          //     )
-          // )
+          TappableArea(
+            left: 130,
+            top: 85,
+            width: 45,
+            height: 150,
+            onTap: () {
+              updateSvg('assets/images/man_figure_arms.svg'); // Load arms SVG
+            },
+          ),
+          TappableArea(
+            left: 38,
+            top: 240,
+            width: 100,
+            height: 260,
+            onTap: () {
+              updateSvg('assets/images/man_figure_legs.svg'); // Load legs SVG
+            },
+          ),
+          TappableArea(
+            left: 43,
+            top: 80,
+            width: 92,
+            height: 162,
+            onTap: () {
+              updateSvg('assets/images/man_figure_core.svg'); // Load core SVG
+            },
+          ),
+          TappableArea(
+            left: 0,
+            top: 85,
+            width: 45,
+            height: 150,
+            onTap: () {
+              updateSvg('assets/images/man_figure_arms.svg'); // Load arms SVG
+            },
+          ),
+          TappableArea(
+            left: 0,
+            top: 238,
+            width: 23,
+            height: 55,
+            onTap: () {
+              updateSvg('assets/images/man_figure_hands.svg'); // Load left hand SVG
+            },
+          ),
+          TappableArea(
+            left: 153,
+            top: 238,
+            width: 23,
+            height: 55,
+            onTap: () {
+              updateSvg('assets/images/man_figure_hands.svg'); // Load right hand SVG
+            },
+          ),
         ],
       ),
     );
