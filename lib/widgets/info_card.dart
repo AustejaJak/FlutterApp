@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widgets/human_figure.dart';
 import 'package:flutter_app/widgets/info_text_column.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoCard extends StatelessWidget {
   final String svgPath;
@@ -30,11 +30,7 @@ class InfoCard extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 100),
-                  child: SvgPicture.asset(
-                    svgPath,
-                    height: 500,
-                    width: 70,
-                  ),
+                  child: HumanFigure(svgPath: svgPath),
                 ),
               ],
             ),

@@ -16,11 +16,11 @@ class InfoTextColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: _buildTextWidgets(),
+      children: buildTextWidgets(),
     );
   }
 
-  List<Widget> _buildTextWidgets() {
+  List<Widget> buildTextWidgets() {
     return texts
         .map((text) => Padding(
               padding: padding,
